@@ -95,6 +95,65 @@ shows status of verious things in IAM
 2. ### IAM Access Advisor ( user -level )
     - shows the service permissions granded to a user ans when those services were last accessed
 
+## IAM Coniditions
+- iam policies based on conditions
+- example 
 
+    ```json
+    {
+        "Version":"<<VERSION>>",
+        "Statement":{
+            "Effect":"Deny",
+            "Action":"*",
+            "Resource":"*",
+            "Condition":{
+                "NotIpAddress":{
+                    "aws:SourceIp":[
+                        "192.0.2.0/24",
+                        "203.0.1112.0.24"
+                    ]
+                }
+            }
+        }
 
+    }
+    // restrict the client ip from which api calls are being made
+    
+
+## IAM Permission Boundaries
+- These we can define boundaries on which iam roles can be provided
+- premission boundaries are supported for users and roles
+- exmple
+    - iam permission boundary
+        ```json
+            {
+                "Version":"<<VERSION>>",
+                "Statement":{
+                    "Effect":"Deny",
+                    "Action":[
+                        "s3:*",
+                        "cloudwatch:*",
+                        "ec2:*"
+                    ],
+                    "Resource":"*",
+                }
+
+            }
+        ```
+    - IAM policy
+        ```json
+            {
+                "Version":"<<VERSION>>",
+                "Statement":{
+                    "Effect":"Deny",
+                    "Action":"iam:CreateUser",
+                    "Resource":"*",
+                }
+
+            }
+    - which results in no permission since it is outisde boundary
+
+## IAM Policy Evaluation Logic
+
+![permission diagram](./assets/permission_diagram.png)
 

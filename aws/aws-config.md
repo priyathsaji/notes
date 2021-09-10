@@ -1,9 +1,4 @@
----
-title: AWS Config 
-date: "2020-09-10T16:01:00.000Z"
-description: "AWS Config"
----
-
+>
 # AWS Config
 - helps with auditing and compiance of aws services
 - help record configurations and chagnes over time
