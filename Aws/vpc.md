@@ -1,6 +1,6 @@
 ---
 title: VPC - Virtual Private Cloud
-date: "2020-09-01T03:47:00.000Z"
+date: "2020-09-12T03:47:00.000Z"
 description: "Virtual Private Cloud"
 ---
 
